@@ -2,7 +2,7 @@ package com.bah.security.demo.api;
 
 import java.io.Serializable;
 
-public class Customer implements Serializable{
+public class Customer{
 
 	long id;
 	String name;
@@ -11,6 +11,11 @@ public class Customer implements Serializable{
 
 	
 	
+	public Customer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Customer(long id, String name, String password, String email) {
 		super();
 		this.id = id;
