@@ -14,7 +14,7 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 public class JWTHelper implements JWTUtil {
 	
 		@Override
-		public Token createToken(String scopes) {
+		public Token createToken() {
 			
 			try {
 			    Algorithm algorithm = Algorithm.HMAC256("secret");
@@ -23,7 +23,7 @@ public class JWTHelper implements JWTUtil {
 			    String token = JWT.create()
 			    	.withSubject("apiuser")
 			        .withIssuer("me@me.com")
-			        .withClaim("scopes", scopes)
+			        .withClaim("scopes", "com.api.customer.r")
 			        .withExpiresAt(expireDate)
 			        .sign(algorithm);
 			    return new Token(token);

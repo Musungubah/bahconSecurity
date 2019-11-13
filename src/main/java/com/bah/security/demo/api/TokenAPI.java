@@ -24,12 +24,12 @@ public class TokenAPI {
 		String scopes = tokenRequestData.getScopes();
 		System.out.println(username + "\t"+ password);
 		
-		final String uri = "http://localhost:8083/api/customers/" +username;
+		final String uri = "http://localhost:8080/api/customers/name/" +username;
 	     
 	    RestTemplate restTemplate = new RestTemplate();
 	    Customer result = restTemplate.getForObject(uri, Customer.class);
 	    
-	    //System.out.println(result);
+	    System.out.println(result);
 	    
 		/*
 		if (username != null && username.length() > 0 
@@ -39,9 +39,10 @@ public class TokenAPI {
 			ResponseEntity<?> response = ResponseEntity.ok(token);
 			return response;			
 		}*/
+	    System.out.println(tokenRequestData.getPassword() + " == " + result.getPassword()); 
 	    
 	    if(tokenRequestData.getPassword().equals(result.getPassword())) {
-	    	Token token = jwtUtil.createToken(scopes);
+	    	Token token = jwtUtil.createToken();
 			ResponseEntity<?> response = ResponseEntity.ok(token);
 	    	return response;
 	    }
