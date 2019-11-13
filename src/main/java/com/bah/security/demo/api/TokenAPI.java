@@ -19,15 +19,16 @@ public class TokenAPI {
 	@PostMapping(consumes = "application/json")
 	public ResponseEntity<?> getToken(@RequestBody TokenRequestData tokenRequestData) {
 		
-		String username = tokenRequestData.getUsername();
+		String name = tokenRequestData.getName();
 		String password = tokenRequestData.getPassword();
 		String scopes = tokenRequestData.getScopes();
-		System.out.println(username + "\t"+ password);
+		System.out.println(name + "\t"+ password);
 		
-		final String uri = "http://localhost:8080/api/customers/name/" +username;
+		final String uri = "http://localhost:8080/api/customers/login";
+		System.out.println(uri);
 	     
 	    RestTemplate restTemplate = new RestTemplate();
-	    Customer result = restTemplate.getForObject(uri, Customer.class);
+	    boolean result = restTemplate.postForObject(uri, tokenRequestData, boolean.class);
 	    
 	    System.out.println(result);
 	    
@@ -39,9 +40,9 @@ public class TokenAPI {
 			ResponseEntity<?> response = ResponseEntity.ok(token);
 			return response;			
 		}*/
-	    System.out.println(tokenRequestData.getPassword() + " == " + result.getPassword()); 
+	    //System.out.println(tokenRequestData.getPassword() + " == " + result.getPassword()); 
 	    
-	    if(tokenRequestData.getPassword().equals(result.getPassword())) {
+	    if(result ) {
 	    	Token token = jwtUtil.createToken();
 			ResponseEntity<?> response = ResponseEntity.ok(token);
 	    	return response;

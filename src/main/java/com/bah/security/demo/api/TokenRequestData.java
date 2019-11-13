@@ -1,7 +1,7 @@
 package com.bah.security.demo.api;
 
 public class TokenRequestData {
-	String username;
+	String name;
 	String password;
 	String scopes;
 	
@@ -10,17 +10,17 @@ public class TokenRequestData {
 	}
 	public TokenRequestData(String username, String password, String scopes) {
 		super();
-		this.username = username;
+		this.name = username;
 		this.password = password;
 		this.scopes = scopes;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getName() {
+		return name;
 	}
 	
-	public void setUsername(String username) {
-		this.username = username;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	public String getPassword() {
