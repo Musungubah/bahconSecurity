@@ -19,7 +19,7 @@ public class RegisterController {
 	@PostMapping
 	public void registerUser(@RequestBody Customer customer) {
 		
-		final String uri = "http://localhost:8080/api/customers/";
+		final String uri = "http://10.100.143.157:9090/api/customers/";
 	     System.out.println(customer);
 	    RestTemplate restTemplate = new RestTemplate();
 	    HttpStatus status;

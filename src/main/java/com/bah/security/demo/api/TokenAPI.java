@@ -24,7 +24,7 @@ public class TokenAPI {
 		String scopes = tokenRequestData.getScopes();
 		System.out.println(name + "\t"+ password);
 		
-		final String uri = "http://localhost:8080/api/customers/login";
+		final String uri = "http://10.100.143.157:9090/api/customers/login";
 		System.out.println(uri);
 	     
 	    RestTemplate restTemplate = new RestTemplate();
