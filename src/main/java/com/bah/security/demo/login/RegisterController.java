@@ -13,7 +13,7 @@ import com.bah.security.demo.api.Customer;
 
 
 
-@RestController("/registrations")
+@RestController("/register")
 public class RegisterController {
 	
 	@PostMapping
