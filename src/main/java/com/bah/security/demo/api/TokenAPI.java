@@ -24,13 +24,13 @@ public class TokenAPI {
 		String scopes = tokenRequestData.getScopes();
 		System.out.println(name + "\t"+ password);
 		
-		final String uri = "http://10.100.143.157:9090/api/customers/login";
-		System.out.println(uri);
+		final String uri = "http://localhost:8080/api/customers/login";
+		//System.out.println(uri);
 	     
 	    RestTemplate restTemplate = new RestTemplate();
 	    boolean result = restTemplate.postForObject(uri, tokenRequestData, boolean.class);
 	    
-	    System.out.println(result);
+	    //System.out.println(result);
 	    
 		/*
 		if (username != null && username.length() > 0 
@@ -42,7 +42,7 @@ public class TokenAPI {
 		}*/
 	    //System.out.println(tokenRequestData.getPassword() + " == " + result.getPassword()); 
 	    
-	    if(result ) {
+	    if(result == true) {
 	    	Token token = jwtUtil.createToken();
 			ResponseEntity<?> response = ResponseEntity.ok(token);
 	    	return response;
